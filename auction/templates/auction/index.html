@@ -1,0 +1,29 @@
+{% extends "auction/layout.html" %}
+
+{% block body %}
+    <h2 class="text-center">Active Listings</h2>
+    {% comment %}
+    {% for listing in listings %}
+        <div class="card">
+            <div class="card-body row">
+                <div class="col-2">
+                {% if listing.image %}
+                        <img class="card-img rounded float-left" src="{{ listing.image }}" alt="Product Image">
+                {% endif %}
+                </div>
+                <div class="col">
+                    <h4 class="card-title">
+                        <a href="{% url 'listing' listing.id %}">{{ listing.title }}</a>
+                    </h4>
+                    <h5 class="card-subtitle"><strong>${{ listing.price }}</strong></h5>
+                    <p class="card-text">{{ listing.desc }}</p>
+                </div>
+            </div>    
+        </div>
+        <br>
+    {% empty %}
+        <h3>No Available Listings</h3>
+    {% endfor %}
+    {% endcomment %}
+    # TODO #
+{% endblock %}
