@@ -1,9 +1,36 @@
-body {
-    padding: 10px;
+nav {
+    background-image: linear-gradient(to right, rgba(77, 210, 255, 0.4), rgba(77, 210, 255, 0.7));
 }
 
-img
-{
-    margin-left: auto;
-    margin-right: auto;
+html, body {
+    font-family: 'Raleway', sans-serif;
+    height: 100%;
+}
+
+.title {
+    vertical-align: middle;
+    padding: 12% 0;
+}
+
+.form-auth {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.form-create {
+    max-width: 700px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.landing {
+  background-image: linear-gradient(to bottom right, #ccb3ff, #bb99ff);
+  height: 60%;
+  top: 0;
+  bottom: auto;
+}
+
+.heading {
+  font-size: 60px;
 }
