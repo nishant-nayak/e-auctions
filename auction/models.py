@@ -29,19 +29,4 @@ class Listing(models.Model):
 
 # Model definition for User, which inherits from AbstractUser
 class User(AbstractUser):
-    watchlist = models.ManyToManyField(Listing, related_name="watchlist") 
-
-# Model definition for Bid
-class Bid(models.Model):
-    item = models.ForeignKey('Listing', on_delete=models.CASCADE)
-    user = models.ForeignKey('User', on_delete=models.CASCADE)
-    amount = models.FloatField()
-    time = models.DateTimeField(auto_now_add=True)
-
-# Model defintion for Comment
-class Comment(models.Model):
-    item = models.ForeignKey('Listing', on_delete=models.CASCADE)
-    user = models.ForeignKey('User', on_delete=models.CASCADE)
-    title = models.CharField(max_length=64)
-    text = models.TextField(max_length=300)
-    time = models.DateTimeField(auto_now_add=True)
+    watchlist = models.ManyToManyField(Listing, related_name="watchlist")

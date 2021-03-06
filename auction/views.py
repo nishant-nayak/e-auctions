@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 
-from .models import User, Listing, Bid, Comment
+from .models import User, Listing
 from .forms import ListingForm
 
 # Default view of the website, this is the first page that the user will see
