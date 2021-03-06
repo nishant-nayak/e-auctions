@@ -2,6 +2,7 @@ from django.urls import path
 
 from . import views
 
+# URL Paths of the website are defined here
 urlpatterns = [
     path('', views.index, name='index'),
     path('login', views.login_view, name='login'),

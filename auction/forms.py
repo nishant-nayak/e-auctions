@@ -1,8 +1,10 @@
 from django import forms
 from .models import Listing
 
+# Form definition for the Create Listing Form
 class ListingForm(forms.ModelForm):
     class Meta:
+        # This form inherits from the Listing model
         model = Listing
         widgets = {
             'title': forms.TextInput(attrs={

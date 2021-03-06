@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+# All the URL Paths are defined here, we include the paths from the urls.py file in the auction folder
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('auction.urls')),

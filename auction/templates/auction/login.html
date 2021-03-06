@@ -5,12 +5,17 @@
 {% endblock %}
 
 {% block body %}
+    {% if message %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>{{ message }}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endif %}
 
     <h2 class="text-center">Login</h2>
 
-    {% if message %}
-        <div>{{ message }}</div>
-    {% endif %}
     <div class="text-center">
         <form action="{% url 'login' %}" method="post" class="form-auth">
             {% csrf_token %}
