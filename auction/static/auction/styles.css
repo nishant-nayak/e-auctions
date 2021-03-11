@@ -26,7 +26,7 @@ html, body {
 
 .landing {
   background-image: linear-gradient(to bottom right, #ccb3ff, #bb99ff);
-  height: 60%;
+  height: 65%;
   top: 0;
   bottom: auto;
 }
