@@ -1,25 +1,12 @@
 {% extends "auction/layout.html" %}
 
+{% block title %}
+    Watchlist
+{% endblock %}
+
 {% block body %}
-    <section class="landing container-fluid">
-        <div class="title row">
-            <div class="col-md-10 offset-md-1">
-                <h1 class="dipslay-3 text-center">CS254 Auctions</h1>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-2 offset-md-10">
-                {% if user.is_authenticated %}
-                <h5 class="text-right pr-1">Signed in as <strong>{{ user.username }}</strong></h5>
-                {% else %}
-                    <h5 class="text-right">Not Signed In.</h5>
-                {% endif %}
-            </div>
-        </div>
-    </section>
-    <h2 class="text-center heading py-3">Active Listings</h2>
-    <hr>
-    {% for listing in listings %}
+    <h2 class="text-center">My Watchlist</h2>
+    {% for listing in wlist %}
         <div class="card">
             <div class="card-body row">
                 <div class="col-2">
