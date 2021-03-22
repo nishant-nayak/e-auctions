@@ -5,29 +5,30 @@
 {% endblock %}
 
 {% block body %}
-    <h2>User Details</h2>
+    <h2 class="text-center heading">User Details</h2>
     <table class="table table-striped">
         <tbody>
             <tr>
-                <td>Username</td>
-                <td>{{ userpage.username }}</td>
+                <th>Username</th>
+                <td class="text-right">{{ userpage.username }}</td>
             </tr>
             <tr>
-                <td>First Name</td>
-                <td>{{ userpage.first_name }}</td>
+                <th>First Name</th>
+                <td class="text-right">{{ userpage.first_name }}</td>
             </tr>
             <tr>
-                <td>Last Name</td>
-                <td>{{ userpage.last_name }}</td>
+                <th>Last Name</th>
+                <td class="text-right">{{ userpage.last_name }}</td>
             </tr>
             <tr>
-                <td>Email Address</td>
-                <td><a href="mailto:{{ userpage.email }}">{{ userpage.email }}</a></td>
+                <th>Email Address</th>
+                <td class="text-right"><a href="mailto:{{ userpage.email }}">{{ userpage.email }}</a></td>
             </tr>
         </tbody>
     </table>
     <hr>
-    <h2>User Listings</h2>
+    <br>
+    <h2 class="text-center">User Listings</h2>
     {% for listing in items %}
         <div class="card">
             <div class="card-body row">
@@ -50,7 +51,8 @@
         <h3>No Available Listings</h3>
     {% endfor %}
     <hr>
-    <h2>Recent Activity</h2>
+    <br>
+    <h2 class="text-center">Recent Activity</h2>
     <div class="card-group">
     {% for comment in comments %}
         <div class="card">
