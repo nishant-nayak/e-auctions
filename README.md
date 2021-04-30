@@ -28,7 +28,7 @@
 1. Clone the repository using the following command:<br>
 `git clone https://github.com/nishant-nayak/e-auctions.git`
 
-2. Run the SQL Commands defined in [MySQLInit.sql](/MySQLInit.sql)
+2. Run the SQL Commands defined in [MySQLinit.sql](/MySQLinit.sql)
 
 3. Install all the necessary Python package requirements by running the following command:<br>
 `pip install -r requirements.txt`
