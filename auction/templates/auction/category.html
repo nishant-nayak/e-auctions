@@ -1,0 +1,45 @@
+{% extends "auction/layout.html" %}
+
+{% block title %}
+    {% if idx %}
+        Categories
+    {% else %}
+        {{ listings.0.get_category_display }}
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+    {% if idx %}
+        <h2 class="text-center heading">Index</h2>
+        <div class="list-group">
+            {% for category in categories %}
+                <a href="{% url 'category' category.0 %}" class="list-group-item list-group-item-action">
+                    {{ category.1 }}
+                </a>
+            {% endfor %}
+        </div>
+    {% else %}
+        <h2>{{ listings.0.get_category_display }}</h2>
+        {% for listing in listings %}
+            <div class="card">
+                <div class="card-body row">
+                    <div class="col-2">
+                    {% if listing.image %}
+                            <img class="card-img rounded float-left" src="{{ listing.image }}" alt="Product Image">
+                    {% endif %}
+                    </div>
+                    <div class="col">
+                        <h4 class="card-title">
+                            <a href="{% url 'listing' listing.id %}">{{ listing.title }}</a>
+                        </h4>
+                        <h5 class="card-subtitle"><strong>${{ listing.price }}</strong></h5>
+                        <p class="card-text">{{ listing.desc }}</p>
+                    </div>
+                </div>    
+            </div>
+            <br>
+        {% empty %}
+            <h3 class="text-center">No Available Listings</h3>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

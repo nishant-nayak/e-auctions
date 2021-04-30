@@ -1,0 +1,70 @@
+{% extends 'auction/layout.html' %}
+
+{% block title %}
+    User: {{ userpage.username }}
+{% endblock %}
+
+{% block body %}
+    <h2 class="text-center heading">User Details</h2>
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <th>Username</th>
+                <td class="text-right">{{ userpage.username }}</td>
+            </tr>
+            <tr>
+                <th>First Name</th>
+                <td class="text-right">{{ userpage.first_name }}</td>
+            </tr>
+            <tr>
+                <th>Last Name</th>
+                <td class="text-right">{{ userpage.last_name }}</td>
+            </tr>
+            <tr>
+                <th>Email Address</th>
+                <td class="text-right"><a href="mailto:{{ userpage.email }}">{{ userpage.email }}</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    <br>
+    <h2 class="text-center">User Listings</h2>
+    {% for listing in items %}
+        <div class="card">
+            <div class="card-body row">
+                <div class="col-2">
+                {% if listing.image %}
+                        <img class="card-img rounded float-left" src="{{ listing.image }}" alt="Product Image">
+                {% endif %}
+                </div>
+                <div class="col">
+                    <h4 class="card-title">
+                        <a href="{% url 'listing' listing.id %}">{{ listing.title }}</a>
+                    </h4>
+                    <h5 class="card-subtitle"><strong>${{ listing.price }}</strong></h5>
+                    <p class="card-text">{{ listing.desc }}</p>
+                </div>
+            </div>    
+        </div>
+        <br>
+    {% empty %}
+        <h3>No Available Listings</h3>
+    {% endfor %}
+    <hr>
+    <br>
+    <h2 class="text-center">Recent Activity</h2>
+    <div class="card-group">
+    {% for comment in comments %}
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title"><a href="{% url 'listing' comment.item.id %}">{{ comment.title }}</a></h4>
+                <h6 class="card-subtitle mb-2">By {{ comment.user.username }}</h6>
+                <p class="card-text">{{ comment.text }}</p>
+            </div>
+        </div>
+    {% empty %}
+        <h4 class="text-muted">No Recent Activity.</h4>
+    {% endfor %}
+    </div>
+
+{% endblock %}

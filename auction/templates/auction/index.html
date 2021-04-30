@@ -1,0 +1,43 @@
+{% extends "auction/layout.html" %}
+
+{% block body %}
+    <section class="landing container-fluid">
+        <div class="title row">
+            <div class="col-md-10 offset-md-1">
+                <h1 class="dipslay-3 text-center">CS254 Auctions</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 offset-md-10">
+                {% if user.is_authenticated %}
+                <h5 class="text-right pr-1">Signed in as <strong>{{ user.username }}</strong></h5>
+                {% else %}
+                    <h5 class="text-right">Not Signed In.</h5>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+    <h2 class="text-center heading py-3">Active Listings</h2>
+    <hr>
+    {% for listing in listings %}
+        <div class="card">
+            <div class="card-body row">
+                <div class="col-2">
+                {% if listing.image %}
+                        <img class="card-img rounded float-left" src="{{ listing.image }}" alt="Product Image">
+                {% endif %}
+                </div>
+                <div class="col">
+                    <h4 class="card-title">
+                        <a href="{% url 'listing' listing.id %}">{{ listing.title }}</a>
+                    </h4>
+                    <h5 class="card-subtitle"><strong>${{ listing.price }}</strong></h5>
+                    <p class="card-text">{{ listing.desc }}</p>
+                </div>
+            </div>    
+        </div>
+        <br>
+    {% empty %}
+        <h3>No Available Listings</h3>
+    {% endfor %}
+{% endblock %}
