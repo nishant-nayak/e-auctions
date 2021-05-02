@@ -50,4 +50,5 @@ The Django Secret Key is stored in a `.env` file within the [auctions](/auctions
 `SECRET_KEY=django-insecure-wing%@uugqyp#$xf@n1cbd^ep6h2_d*(-9^o$q_qp-2&k)$n)k`
 
 ## Contact
+
 [GitHub](https://github.com/nishant-nayak) | [Email](mailto:nishantnayak2001@gmail.com) | [LinkedIn](https://www.linkedin.com/in/nishant-nayak-01/)
