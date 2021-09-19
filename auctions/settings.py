@@ -11,10 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-
-import environ
-env = environ.Env()
-environ.Env.read_env()
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,12 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env("SECRET_KEY")
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -82,9 +79,12 @@ AUTH_USER_MODEL = 'auction.User'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'OPTIONS': {
-            'read_default_file' : str(BASE_DIR.resolve()) + '\mysql.cnf'
-        }
+        'NAME': os.getenv("MYSQL_DB_NAME"),
+        'USER': os.getenv("MYSQL_DB_USER"),
+        'PASSWORD': os.getenv("MYSQL_DB_PASSWORD"),
+        'HOST': os.getenv("MYSQL_DB_HOST"),
+        'PORT': '3306',
+        'OPTIONS': {'ssl': {'ca':'/code/auctions/BaltimoreCyberTrustRoot.crt.pem'}}
     }
 }
 

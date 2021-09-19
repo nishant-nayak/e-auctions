@@ -1,5 +1,0 @@
-[client]
-database = auction_data
-user = djangouser
-password = NITK2021
-default-character-set = utf8
