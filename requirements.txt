@@ -1,6 +1,6 @@
 python==3.7.10
 Django==3.2.19
 mysqlclient==2.0.3
-setuptools==52.0.0.post20210125
+setuptools==65.5.1
 wheel==0.38.1
 wincertstore==0.2
